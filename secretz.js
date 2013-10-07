@@ -22,6 +22,7 @@ parser.on('entry', function(file){
 
   file
     .pipe(hashStream)
+  //pretty sure the null here hands stuff through untouched
     .pipe(through(null, function() {this.queue(' ' + file.path + '\n')}))
     .pipe(process.stdout);
 });
